@@ -1,8 +1,15 @@
+const socket = io("/");
+
+socket.emit("join-room", ROOM_ID, "10");
+
+socket.on("user-connected", (userId) => {
+  console.log(userId, "user connected");
+});
+
 let localStream;
 let remoteStream;
 let peerConnection;
 // let app_id = "";
-
 // let token = null;
 // let uid = String(Math.floor(Math.random * 10000));
 // let client;
@@ -68,4 +75,4 @@ let createOffer = async () => {
   await peerConnection.setLocalDescription(offer);
 };
 
-init();
+// init();
